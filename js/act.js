@@ -65,6 +65,37 @@ const config = {
       return true;
     }
   }
+
+
+const fullnameInput = document.getElementById("fullname");
+const emailInput = document.getElementById("email");
+const errorElement = document.getElementById("emailError");
+
+function getEmailUsername(email) {
+  return email.split('@')[0];
+}
+function checkEmailUsername() {
+  const fullname = fullnameInput.value.trim();
+  const email = emailInput.value.trim();
+
+  if (email.length > 0) {
+    const emailUsername = getEmailUsername(email).toLowerCase(); 
+    const firstName = fullname.split(" " )[0].toLowerCase(); 
+
+    if (emailUsername === firstName) 
+    {
+        errorElement.textContent = ""; 
+      return true;
+    } 
+    else
+    {
+    errorElement.textContent = "aoeuaoeuaoeua";
+      return false;
+    }
+  }
+}
+emailInput.addEventListener('change', checkEmailUsername);
+
   
   // Function to validate form inputs on user input
   function validateFormOnInput() {
