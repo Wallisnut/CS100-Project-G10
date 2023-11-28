@@ -65,6 +65,32 @@ const config = {
       return true;
     }
   }
+  function validateacademicYear(){
+    const academicYearinput = document.getElementById("academicYear");
+    const errorElement = document.getElementById("academicYearError");
+    
+    if(academicYearinput.value === "default"){
+      errorElement.textContent ="Please select.";
+      return false;
+    } else {
+      errorElement.textContent= ""; 
+      return true;
+    }
+  }
+  function validatesemester(){
+    const semesterinput = document.getElementById("semester");
+    const errorElement = document.getElementById("semesterError");
+    
+    if(semesterinput.value === "default"){
+      errorElement.textContent ="Please select.";
+      return false;
+    } else {
+      errorElement.textContent= ""; 
+      return true;
+    }
+  }
+
+  
   
   // Function to validate form inputs on user input
   function validateFormOnInput() {
@@ -72,6 +98,8 @@ const config = {
     validateStudentID();
     validateEmail();
     validateTypeWork();
+    validateacademicYear()
+    validatesemester();
   }
   
   // Function to fetch activity types from the backend
@@ -115,7 +143,7 @@ const config = {
     event.preventDefault();
   
     // Validate form inputs before submission
-    if (!validateName() || !validateStudentID() || !validateEmail() || !validateTypeWork()) {
+    if (!validateName() || !validateStudentID() || !validateEmail() || !validateTypeWork() || !validateacademicYear() || !validatesemester()) {
       return;
     }
   
@@ -192,3 +220,6 @@ const config = {
     .addEventListener("input", validateStudentID);
   document.getElementById("email").addEventListener("input", validateEmail);
   document.getElementById("activityType").addEventListener("input", validateTypeWork);
+  document.getElementById("academicYear").addEventListener("input", validateacademicYear);
+  document.getElementById("semester").addEventListener("input", validatesemester);
+  
