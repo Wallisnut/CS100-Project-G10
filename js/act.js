@@ -8,7 +8,7 @@ const config = {
     const fullnameInput = document.getElementById("fullname");
     const names = fullnameInput.value.trim().split(" ");
     const errorElement = document.getElementById("fullnameError");
-  
+    const namePattern = /^[a-b]+$/
     if (names.length !== 2) {
       errorElement.textContent = "Please enter both your Firstname and Lastname.";
       return false;
@@ -18,20 +18,24 @@ const config = {
     return true;
   }
   
+  
   // Function to validate Student ID
   function validateStudentID() {
     const studentIDInput = document.getElementById("studentID");
-    const studentIDPattern = /^\d{10}$/;
+    const studentIDPattern = /^(66.+\d{8})$/; // ทำเพิ่ม 66xxxxxxxx
     const errorElement = document.getElementById("studentIDError");
   
-    if (!studentIDPattern.test(studentIDInput.value)) {
-      errorElement.textContent = "Please enter a 10-digit Student ID.";
+    if (!studentIDPattern.test (studentIDInput.value)) {
+      errorElement.textContent = "Please enter a 10-digit Student ID. Please provide a valid Student ID in the format '66XXXXXXXX'.";;
       return false;
+      
     } else {
       errorElement.textContent = ""; // Clear the error message when valid
     }
     return true;
+    
   }
+  
   
   // Function to validate University Email
   function validateEmail() {
