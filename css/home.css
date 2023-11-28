@@ -5,6 +5,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+body {
+    background-color: #a2b5c2;
+}
+
 :root 
 {
     --c-1 :#3e4f5a;
@@ -41,4 +45,25 @@ body
     color: var(--t-1);
     font-size: 22px;
     margin-left: 50px;
+}
+
+
+.column{
+    float: left;
+    color: #ffffff;
+}
+
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column.left {
+    width: 33.33%;
+}
+.column.mid {
+    width: 30%;
+}.column.right {
+    width: 30%;
 }
