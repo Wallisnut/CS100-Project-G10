@@ -22,7 +22,7 @@ const config = {
   // Function to validate Student ID
   function validateStudentID() {
     const studentIDInput = document.getElementById("studentID");
-    const studentIDPattern = /^(66+\d{8})$/; // ทำเพิ่ม 66xxxxxxxx
+    const studentIDPattern = /^(66+\d{8})$/; // 66xxxxxxxx
     const errorElement = document.getElementById("studentIDError");
   
     if (!studentIDPattern.test (studentIDInput.value)) {
@@ -96,6 +96,55 @@ function checkEmailUsername() {
 }
 emailInput.addEventListener('change', checkEmailUsername);
 
+function validateacademicYear(){
+  const academicYearinput = document.getElementById("academicYear");
+  const errorElement = document.getElementById("academicYearError");
+
+  if(academicYearinput.value === "default"){
+    errorElement.textContent ="Please select.";
+    return false;
+  } else {
+    errorElement.textContent= ""; 
+    return true;
+  }
+}
+function validatesemester(){
+  const semesterinput = document.getElementById("semester");
+  const errorElement = document.getElementById("semesterError");
+
+  if(semesterinput.value === "default"){
+    errorElement.textContent ="Please select.";
+    return false;
+  } else {
+    errorElement.textContent= ""; 
+    return true;
+  }
+}
+function validatestartDate(){
+  const startDateinput = document.getElementById("startDate");
+  const errorElement = document.getElementById("startDateError");
+
+  if(startDateinput.value === ""){
+    errorElement.textContent ="Please select.";
+    return false;
+  } else {
+    errorElement.textContent= ""; 
+    return true;
+  }
+}
+
+function validateendDate(){
+  const endDateinput = document.getElementById("endDate");
+  const errorElement = document.getElementById("endDateError");
+
+  if(endDateinput.value === ""){
+    errorElement.textContent ="Please select.";
+    return false;
+  } else {
+    errorElement.textContent= ""; 
+    return true;
+  }
+}
   
   // Function to validate form inputs on user input
   function validateFormOnInput() {
@@ -105,6 +154,8 @@ emailInput.addEventListener('change', checkEmailUsername);
     validateTypeWork();
     validateacademicYear()
     validatesemester();
+    validatestartDate();
+    validateendDate();
   }
   
   // Function to fetch activity types from the backend
@@ -148,7 +199,7 @@ emailInput.addEventListener('change', checkEmailUsername);
     event.preventDefault();
   
     // Validate form inputs before submission
-    if (!validateName() || !validateStudentID() || !validateEmail() || !validateTypeWork() || !validateacademicYear() || !validatesemester()) {
+    if (!validateName() || !validateStudentID() || !validateEmail() || !validateTypeWork() || !validateacademicYear() || !validatesemester() || !validatestartDate() || !validateendDate()) {
       return;
     }
   
@@ -161,6 +212,8 @@ emailInput.addEventListener('change', checkEmailUsername);
       alert("End datetime should be after the start datetime.");
       return;
     }
+    
+    
   
     // Create the data object to send to the backend
     const formData = new FormData(event.target);
@@ -227,4 +280,6 @@ emailInput.addEventListener('change', checkEmailUsername);
   document.getElementById("activityType").addEventListener("input", validateTypeWork);
   document.getElementById("academicYear").addEventListener("input", validateacademicYear);
   document.getElementById("semester").addEventListener("input", validatesemester);
+  document.getElementById("startDate").addEventListener("input", validatestartDate);
+  document.getElementById("endDate").addEventListener("input", validateendDate);
   
