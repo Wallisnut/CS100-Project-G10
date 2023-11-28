@@ -4,3 +4,24 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+
+:root 
+{
+    --c-1 :;
+    --c-2 :;
+}
+.nav-bar
+{
+    position: relative;
+    display: flex;
+    background: black;
+}
+.nav-bar nav
+{
+    position: relative;
+    display: flex;
+}
+.nav-bar nav a
+{
+    text-decoration: none;
+}
