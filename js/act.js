@@ -66,13 +66,12 @@ const config = {
     }
   }
 
-
-const fullnameInput = document.getElementById("fullname");
-const emailInput = document.getElementById("email");
+const fullnameInput = document.getElementById('fullname');
+const emailInput = document.getElementById('email');
 const errorElement = document.getElementById("emailError");
 
 function getEmailUsername(email) {
-  return email.split('@')[0];
+  return email.split('@')[0]; 
 }
 function checkEmailUsername() {
   const fullname = fullnameInput.value.trim();
@@ -80,21 +79,26 @@ function checkEmailUsername() {
 
   if (email.length > 0) {
     const emailUsername = getEmailUsername(email).toLowerCase(); 
-    const firstName = fullname.split(" " )[0].toLowerCase(); 
 
-    if (emailUsername === firstName) 
+    const nameParts = fullname.split(' ');
+    const firstName = nameParts[0].toLowerCase(); 
+    const lastName = nameParts.length > 1 ? nameParts[nameParts.length - 1].toLowerCase() : '';
+    const expectedUsername = `${firstName}.${lastName.slice(0, 3)}`;
+
+    if (emailUsername === expectedUsername) 
     {
-        errorElement.textContent = ""; 
+      errorElement.textContent= ""; 
       return true;
-    } 
-    else
-    {
-    errorElement.textContent = "aoeuaoeuaoeua";
-      return false;
     }
+    else 
+    {
+      errorElement.textContent = "aoeuaoeuaoeuaeouaoeu";
+      return false;
+    }    
   }
 }
 emailInput.addEventListener('change', checkEmailUsername);
+
 
   
   // Function to validate form inputs on user input
