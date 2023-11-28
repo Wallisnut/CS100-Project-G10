@@ -11,6 +11,10 @@
     --c-2 :#a2b5c2;
     --t-1 :#e4edf4;
 }
+body
+{
+    background: var(--c-2);
+}
 .nav-bar
 {
     position: relative;
