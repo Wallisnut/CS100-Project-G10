@@ -103,6 +103,8 @@ emailInput.addEventListener('change', checkEmailUsername);
     validateStudentID();
     validateEmail();
     validateTypeWork();
+    validateacademicYear()
+    validatesemester();
   }
   
   // Function to fetch activity types from the backend
@@ -146,7 +148,7 @@ emailInput.addEventListener('change', checkEmailUsername);
     event.preventDefault();
   
     // Validate form inputs before submission
-    if (!validateName() || !validateStudentID() || !validateEmail() || !validateTypeWork()) {
+    if (!validateName() || !validateStudentID() || !validateEmail() || !validateTypeWork() || !validateacademicYear() || !validatesemester()) {
       return;
     }
   
@@ -223,3 +225,6 @@ emailInput.addEventListener('change', checkEmailUsername);
     .addEventListener("input", validateStudentID);
   document.getElementById("email").addEventListener("input", validateEmail);
   document.getElementById("activityType").addEventListener("input", validateTypeWork);
+  document.getElementById("academicYear").addEventListener("input", validateacademicYear);
+  document.getElementById("semester").addEventListener("input", validatesemester);
+  
