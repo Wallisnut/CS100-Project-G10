@@ -7,14 +7,15 @@
 
 :root 
 {
-    --c-1 :;
-    --c-2 :;
+    --c-1 :#3e4f5a;
+    --c-2 :#a2b5c2;
+    --t-1 :#e4edf4;
 }
 .nav-bar
 {
     position: relative;
     display: flex;
-    background: black;
+    background: var(--c-1);
 }
 .nav-bar nav
 {
