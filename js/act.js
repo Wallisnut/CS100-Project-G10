@@ -22,7 +22,7 @@ const config = {
   // Function to validate Student ID
   function validateStudentID() {
     const studentIDInput = document.getElementById("studentID");
-    const studentIDPattern = /^(66.+\d{8})$/; // ทำเพิ่ม 66xxxxxxxx
+    const studentIDPattern = /^(66+\d{8})$/; // ทำเพิ่ม 66xxxxxxxx
     const errorElement = document.getElementById("studentIDError");
   
     if (!studentIDPattern.test (studentIDInput.value)) {
@@ -44,13 +44,26 @@ const config = {
     const errorElement = document.getElementById("emailError");
   
     if (!emailPattern.test(emailInput.value)) {
-      errorElement.textContent =
-        "Please provide a valid university email in the format 'xxx.yyy@dome.tu.ac.th'.";
+      errorElement.textContent = "Please provide a valid university email in the format 'xxx.yyy@dome.tu.ac.th'.";
       return false;
     } else {
       errorElement.textContent = ""; // Clear the error message when valid
+      return true;
     }
-    return true;
+   
+  }
+
+  function validateTypeWork(){
+    const typeworkinput = document.getElementById("activityType");
+    const errorElement = document.getElementById("activityTypeError");
+    
+    if(typeworkinput.value === "default"){
+      errorElement.textContent ="Please select.";
+      return false;
+    } else {
+      errorElement.textContent= ""; 
+      return true;
+    }
   }
   
   // Function to validate form inputs on user input
@@ -58,6 +71,7 @@ const config = {
     validateName();
     validateStudentID();
     validateEmail();
+    validateTypeWork();
   }
   
   // Function to fetch activity types from the backend
@@ -101,7 +115,7 @@ const config = {
     event.preventDefault();
   
     // Validate form inputs before submission
-    if (!validateName() || !validateStudentID() || !validateEmail()) {
+    if (!validateName() || !validateStudentID() || !validateEmail() || !validateTypeWork()) {
       return;
     }
   
@@ -177,3 +191,4 @@ const config = {
     .getElementById("studentID")
     .addEventListener("input", validateStudentID);
   document.getElementById("email").addEventListener("input", validateEmail);
+  document.getElementById("activityType").addEventListener("input", validateTypeWork);
