@@ -63,7 +63,20 @@ body
     display: table;
     clear: both;
 }
-
+/*.row div
+{
+    border: 3px solid var(--t-1);
+    border-radius: 50px;
+}*/
+.row div img
+{
+    width: 360px;
+    height: 360px;
+    object-fit: cover;
+    overflow: hidden;
+    border: 5px solid var(--c-1);
+    border-radius: 50%;
+}
 .column.left {
     width: 30%;
     margin-left: 20px;
