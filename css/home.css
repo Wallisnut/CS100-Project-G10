@@ -41,12 +41,17 @@ body
     color: var(--t-1);
     font-size: 22px;
     margin-left: 50px;
+    
 }
 
 
 .column{
     float: left;
     color: #ffffff;
+    margin-top: 150px;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 30px;
 }
 
 .row::after {
@@ -56,10 +61,35 @@ body
 }
 
 .column.left {
-    width: 33.33%;
+    width: 30%;
+    
 }
 .column.mid {
     width: 30%;
-}.column.right {
+    
+}
+.column.right {
     width: 30%;
+    
+}
+
+
+@media screen and (max-width: 1350px) {
+    .column.mid,.column.right,.column.column.left {
+      width: 100% ;
+      text-align:center ;
+      margin:0px;
+      padding-left:0px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+    .column.middle,.column.right,.column.left{
+      width: 100% ;
+      text-align:center ;
+      margin:0px;
+      padding:0px;
+      border-right:none;
+  }
+  
 }
