@@ -92,7 +92,7 @@ function checkEmailUsername() {
     }
     else 
     {
-      errorElement.textContent = "aoeuaoeuaoeuaeouaoeu";
+      errorElement.textContent = "Please provide a valid university email in the format 'xxx.yyy@dome.tu.ac.th'.";
       return false;
     }    
   }
@@ -150,7 +150,20 @@ function validateendDate(){
     return true;
   }
 }
-  
+
+function validatelocation(){
+  const locationinput = document.getElementById("location");
+  const errorElement = document.getElementById("locationError");
+
+  if(locationinput.value === ""){
+    errorElement.textContent ="Please select.";
+    return false;
+  } else {
+    errorElement.textContent= ""; 
+    return true;
+  }
+} 
+
   // Function to validate form inputs on user input
   function validateFormOnInput() {
     validateName();
@@ -161,6 +174,7 @@ function validateendDate(){
     validatesemester();
     validatestartDate();
     validateendDate();
+    validatelocation();
   }
   
   // Function to fetch activity types from the backend
@@ -204,7 +218,7 @@ function validateendDate(){
     event.preventDefault();
   
     // Validate form inputs before submission
-    if (!validateName() || !validateStudentID() || !validateEmail() || !validateTypeWork() || !validateacademicYear() || !validatesemester() || !validatestartDate() || !validateendDate()) {
+    if (!validateName() || !validateStudentID() || !validateEmail() || !validateTypeWork() || !validateacademicYear() || !validatesemester() || !validatestartDate() || !validateendDate() || !validatelocation()) {
       return;
     }
   
@@ -287,4 +301,5 @@ function validateendDate(){
   document.getElementById("semester").addEventListener("input", validatesemester);
   document.getElementById("startDate").addEventListener("input", validatestartDate);
   document.getElementById("endDate").addEventListener("input", validateendDate);
+  document.getElementById("location").addEventListener("input", validatelocation);
   
