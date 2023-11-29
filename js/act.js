@@ -92,11 +92,7 @@ function checkEmailUsername() {
     }
     else 
     {
-<<<<<<< HEAD
       errorElement.textContent = "aoeuaoeuaeuaoeuaoe";
-=======
-      errorElement.textContent = "Please provide a valid university email in the format 'xxx.yyy@dome.tu.ac.th'.";
->>>>>>> a886a1c6b8af6f0328f67ad573e929c4c1ef3313
       return false;
     }    
   }
@@ -188,20 +184,7 @@ function validateendDate(){
     return true;
   }
 }
-
-function validatelocation(){
-  const locationinput = document.getElementById("location");
-  const errorElement = document.getElementById("locationError");
-
-  if(locationinput.value === ""){
-    errorElement.textContent ="Please select.";
-    return false;
-  } else {
-    errorElement.textContent= ""; 
-    return true;
-  }
-} 
-
+  
   // Function to validate form inputs on user input
   function validateFormOnInput() {
     validateName();
@@ -212,7 +195,6 @@ function validatelocation(){
     validatesemester();
     validatestartDate();
     validateendDate();
-    validatelocation();
   }
   
   // Function to fetch activity types from the backend
@@ -256,7 +238,7 @@ function validatelocation(){
     event.preventDefault();
   
     // Validate form inputs before submission
-    if (!validateName() || !validateStudentID() || !validateEmail() || !validateTypeWork() || !validateacademicYear() || !validatesemester() || !validatestartDate() || !validateendDate() || !validatelocation()) {
+    if (!validateName() || !validateStudentID() || !validateEmail() || !validateTypeWork() || !validateacademicYear() || !validatesemester() || !validatestartDate() || !validateendDate()) {
       return;
     }
   
@@ -339,5 +321,89 @@ function validatelocation(){
   document.getElementById("semester").addEventListener("input", validatesemester);
   document.getElementById("startDate").addEventListener("input", validatestartDate);
   document.getElementById("endDate").addEventListener("input", validateendDate);
-  document.getElementById("location").addEventListener("input", validatelocation);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function showFormData(event) {
+  event.preventDefault();
+  const fullname = document.getElementById('fullname').value;
+  const formDataString = `
+    Full Name: ${fullname}
+    Student ID: ${studentID}
+    Email: ${email}
+    Work/Activity Title: ${workTitle}
+    Type of Work/Activity: ${activityType}
+    Academic Year: ${academicYear}
+    Semester: ${semester}
+    Start Date/Time: ${startDate}
+    End Date/Time: ${endDate}
+    Location: ${location}
+    Description: ${description}
+  `;
+  const existingFormData = document.querySelector('.form-data-container');
+  if (existingFormData) {
+    existingFormData.remove();
+  }
+  const formDataDisplay = document.createElement('div');
+  formDataDisplay.classList.add('form-data-container');
+  const formDataContent = document.createElement('pre');
+  formDataContent.textContent = formDataString;
+const closeButton = document.createElement('button');
+closeButton.textContent = 'Close';
+closeButton.classList.add('close-button'); // Add the close button class
+closeButton.addEventListener('click', function () {
+  formDataDisplay.remove();
+});
+formDataDisplay.appendChild(formDataContent);
+formDataDisplay.appendChild(closeButton);
+document.body.appendChild(formDataDisplay);
+}
+const submitButton = document.querySelector('input[type="submit"]');
+submitButton.addEventListener('click', showFormData);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
