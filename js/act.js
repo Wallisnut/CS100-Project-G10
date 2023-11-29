@@ -374,7 +374,7 @@ function showFormData(event) {
   formDataContent.textContent = formDataString;
 const closeButton = document.createElement('button');
 closeButton.textContent = 'Close';
-closeButton.classList.add('close-button'); // Add the close button class
+closeButton.classList.add('close-button'); 
 closeButton.addEventListener('click', function () {
   formDataDisplay.remove();
 });
