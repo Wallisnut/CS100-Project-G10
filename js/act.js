@@ -350,6 +350,16 @@ function validateendDate(){
 function showFormData(event) {
   event.preventDefault();
   const fullname = document.getElementById('fullname').value;
+  const studentID = document.getElementById('fullname').value;
+  const email = document.getElementById('fullname').value;
+  const workTitle = document.getElementById('fullname').value;
+  const activityType = document.getElementById('fullname').value;
+  const academicYear = document.getElementById('fullname').value;
+  const semester = document.getElementById('fullname').value;
+  const startDate = document.getElementById('fullname').value;
+  const endDate = document.getElementById('fullname').value;
+  const location = document.getElementById('fullname').value;
+  const description = document.getElementById('fullname').value;
   const formDataString = `
     Full Name: ${fullname}
     Student ID: ${studentID}
