@@ -26,7 +26,7 @@ const config = {
     const errorElement = document.getElementById("studentIDError");
   
     if (!studentIDPattern.test (studentIDInput.value)) {
-      errorElement.textContent = "Please enter a 10-digit Student ID. Please provide a valid Student ID in the format '66XXXXXXXX'.";;
+      errorElement.textContent = "Please enter a 10-digit Student ID. Please provide a valid Student ID in the format '66XXXXXXXX'.";
       return false;
       
     } else {
@@ -92,7 +92,11 @@ function checkEmailUsername() {
     }
     else 
     {
+<<<<<<< HEAD
       errorElement.textContent = "aoeuaoeuaeuaoeuaoe";
+=======
+      errorElement.textContent = "Please provide a valid university email in the format 'xxx.yyy@dome.tu.ac.th'.";
+>>>>>>> edcb167a7aed93635331eee75e5e1da5aab1f8c7
       return false;
     }    
   }
@@ -125,6 +129,44 @@ function validatesemester(){
     return true;
   }
 }
+function validatestartDate(){
+  const startDateinput = document.getElementById("startDate");
+  const errorElement = document.getElementById("startDateError");
+
+  if(startDateinput.value === ""){
+    errorElement.textContent ="Please select.";
+    return false;
+  } else {
+    errorElement.textContent= ""; 
+    return true;
+  }
+}
+
+function validateendDate(){
+  const endDateinput = document.getElementById("endDate");
+  const errorElement = document.getElementById("endDateError");
+
+  if(endDateinput.value === ""){
+    errorElement.textContent ="Please select.";
+    return false;
+  } else {
+    errorElement.textContent= ""; 
+    return true;
+  }
+}
+
+function validatelocation(){
+  const locationinput = document.getElementById("location");
+  const errorElement = document.getElementById("locationError");
+
+  if(locationinput.value === ""){
+    errorElement.textContent ="Please enter.";
+    return false;
+  } else {
+    errorElement.textContent= ""; 
+    return true;
+  }
+} 
 
 const errorElementid = document.getElementById("studentIDError");
 const errorElementaca= document.getElementById("academicYearError");
@@ -159,6 +201,7 @@ studentIDInput.addEventListener('change', checkStudentIDYearMatch);
 academicYearSelect.addEventListener('change', checkStudentIDYearMatch);
 
 
+<<<<<<< HEAD
 function validatestartDate(){
   const startDateinput = document.getElementById("startDate");
   const errorElement = document.getElementById("startDateError");
@@ -185,6 +228,9 @@ function validateendDate(){
   }
 }
   
+=======
+
+>>>>>>> edcb167a7aed93635331eee75e5e1da5aab1f8c7
   // Function to validate form inputs on user input
   function validateFormOnInput() {
     validateName();
@@ -291,7 +337,6 @@ function validateendDate(){
         const formattedData = Object.entries(responseData.data)
           .map(([key, value]) => `"${key}": "${value}"`)
           .join("\n");
-  
         // Display success message with formatted data
         alert(responseData.message + "\n" + formattedData);
   
