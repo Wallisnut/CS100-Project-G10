@@ -26,7 +26,7 @@ const config = {
     const errorElement = document.getElementById("studentIDError");
   
     if (!studentIDPattern.test (studentIDInput.value)) {
-      errorElement.textContent = "Please enter a 10-digit Student ID. Please provide a valid Student ID in the format '66XXXXXXXX'.";;
+      errorElement.textContent = "Please enter a 10-digit Student ID. Please provide a valid Student ID in the format '66XXXXXXXX'.";
       return false;
       
     } else {
@@ -92,11 +92,7 @@ function checkEmailUsername() {
     }
     else 
     {
-<<<<<<< HEAD
-      errorElement.textContent = "aoeuaoeuaeuaoeuaoe";
-=======
-      errorElement.textContent = "Please provide a valid university email in the format 'xxx.yyy@dome.tu.ac.th'.";
->>>>>>> a886a1c6b8af6f0328f67ad573e929c4c1ef3313
+      errorElement.textContent = "Please enter you email.";
       return false;
     }    
   }
@@ -129,40 +125,6 @@ function validatesemester(){
     return true;
   }
 }
-
-const errorElementid = document.getElementById("studentIDError");
-const errorElementaca= document.getElementById("academicYearError");
-const studentIDInput = document.getElementById('studentID');
-const academicYearSelect = document.getElementById('academicYear');
-function checkStudentIDYearMatch() {
-  const studentIDInput = document.getElementById('studentID');
-  const academicYearSelect = document.getElementById('academicYear');
-  const studentID = studentIDInput.value.trim();
-  const selectedYear = academicYearSelect.value;
-
-
-  if (studentID.length === 10 && selectedYear.length === 4) {
-    const studentIDFirstTwoDigits = studentID.slice(0, 2);
-    const academicYearLastTwoDigits = selectedYear.slice(2);
-
-    if (studentIDFirstTwoDigits === academicYearLastTwoDigits) 
-    {
-      errorElementid.textContent= ""; 
-      errorElementaca.textContent="";
-      return true;
-    } 
-    else 
-    {
-      errorElementid.textContent ="aoeuaoeuaoeuaoe";
-      errorElementaca.textContent="aoeuaoeuaoeuaoe";
-      return false;
-    }
-  }
-}
-studentIDInput.addEventListener('change', checkStudentIDYearMatch);
-academicYearSelect.addEventListener('change', checkStudentIDYearMatch);
-
-
 function validatestartDate(){
   const startDateinput = document.getElementById("startDate");
   const errorElement = document.getElementById("startDateError");
@@ -194,7 +156,7 @@ function validatelocation(){
   const errorElement = document.getElementById("locationError");
 
   if(locationinput.value === ""){
-    errorElement.textContent ="Please select.";
+    errorElement.textContent ="Please enter.";
     return false;
   } else {
     errorElement.textContent= ""; 
@@ -309,7 +271,6 @@ function validatelocation(){
         const formattedData = Object.entries(responseData.data)
           .map(([key, value]) => `"${key}": "${value}"`)
           .join("\n");
-  
         // Display success message with formatted data
         alert(responseData.message + "\n" + formattedData);
   
