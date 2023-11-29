@@ -373,7 +373,7 @@ function showFormData(event) {
     Description: ${description}
   `;
   
-  FullName.textContent = `Full Name: ${fullname}`;
+ /* FullName.textContent = `Full Name: ${fullname}`;
   StudentId.textContent = `Student ID: ${studentID}`;
   Email.textContent = `Email: ${email}`;
   WorkTitle.textContent = `Work/Activity Title: ${workTitle}`;
@@ -383,7 +383,7 @@ function showFormData(event) {
   StartDate.textContent = `Start Date/Time: ${startDate}`;
   EndDate.textContent = `End Date/Time: ${endDate}`;
   Location1.textContent = `Location: ${location}`;
-  Description.textContent = `Description: ${description}`;
+  Description.textContent = `Description: ${description}`;*/
 
   const existingFormData = document.querySelector('.form-data-container');
   if (existingFormData) {
