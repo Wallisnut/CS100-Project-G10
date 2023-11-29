@@ -164,6 +164,40 @@ function validatelocation(){
   }
 } 
 
+const errorElementid = document.getElementById("studentIDError");
+const errorElementaca= document.getElementById("academicYearError");
+const studentIDInput = document.getElementById('studentID');
+const academicYearSelect = document.getElementById('academicYear');
+function checkStudentIDYearMatch() {
+  const studentIDInput = document.getElementById('studentID');
+  const academicYearSelect = document.getElementById('academicYear');
+  const studentID = studentIDInput.value.trim();
+  const selectedYear = academicYearSelect.value;
+
+
+  if (studentID.length === 10 && selectedYear.length === 4) {
+    const studentIDFirstTwoDigits = studentID.slice(0, 2);
+    const academicYearLastTwoDigits = selectedYear.slice(2);
+
+    if (studentIDFirstTwoDigits === academicYearLastTwoDigits) 
+    {
+      errorElementid.textContent= ""; 
+      errorElementaca.textContent="";
+      return true;
+    } 
+    else 
+    {
+      errorElementid.textContent ="aoeuaoeuaoeuaoe";
+      errorElementaca.textContent="aoeuaoeuaoeuaoe";
+      return false;
+    }
+  }
+}
+studentIDInput.addEventListener('change', checkStudentIDYearMatch);
+academicYearSelect.addEventListener('change', checkStudentIDYearMatch);
+
+
+
   // Function to validate form inputs on user input
   function validateFormOnInput() {
     validateName();
