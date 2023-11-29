@@ -350,16 +350,16 @@ function validateendDate(){
 function showFormData(event) {
   event.preventDefault();
   const fullname = document.getElementById('fullname').value;
-  const studentID = document.getElementById('fullname').value;
-  const email = document.getElementById('fullname').value;
-  const workTitle = document.getElementById('fullname').value;
-  const activityType = document.getElementById('fullname').value;
-  const academicYear = document.getElementById('fullname').value;
-  const semester = document.getElementById('fullname').value;
-  const startDate = document.getElementById('fullname').value;
-  const endDate = document.getElementById('fullname').value;
-  const location = document.getElementById('fullname').value;
-  const description = document.getElementById('fullname').value;
+  const studentID = document.getElementById('studentID').value;
+  const email = document.getElementById('email').value;
+  const workTitle = document.getElementById('workTitle').value;
+  const activityType = document.getElementById('activityType').value;
+  const academicYear = document.getElementById('academicYear').value;
+  const semester = document.getElementById('semester').value;
+  const startDate = document.getElementById('starDate').value;
+  const endDate = document.getElementById('endDate').value;
+  const location = document.getElementById('location').value;
+  const description = document.getElementById('description').value;
   const formDataString = `
     Full Name: ${fullname}
     Student ID: ${studentID}
