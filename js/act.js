@@ -8,7 +8,6 @@ const config = {
     const fullnameInput = document.getElementById("fullname");
     const names = fullnameInput.value.trim().split(" ");
     const errorElement = document.getElementById("fullnameError");
-    const namePattern = /^[a-b]+$/
     if (names.length !== 2) {
       errorElement.textContent = "Please enter both your Firstname and Lastname.";
       return false;
@@ -356,7 +355,7 @@ function showFormData(event) {
   const activityType = document.getElementById('activityType').value;
   const academicYear = document.getElementById('academicYear').value;
   const semester = document.getElementById('semester').value;
-  const startDate = document.getElementById('starDate').value;
+  const startDate = document.getElementById('startDate').value;
   const endDate = document.getElementById('endDate').value;
   const location = document.getElementById('location').value;
   const description = document.getElementById('description').value;
