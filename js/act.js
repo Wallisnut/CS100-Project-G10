@@ -56,7 +56,7 @@ const config = {
     const typeworkinput = document.getElementById("activityType");
     const errorElement = document.getElementById("activityTypeError");
     
-    if(typeworkinput.value === "default"){
+    if(typeworkinput.value === ""){
       errorElement.textContent ="Please select.";
       return false;
     } else {
@@ -104,7 +104,7 @@ function validateacademicYear(){
   const academicYearinput = document.getElementById("academicYear");
   const errorElement = document.getElementById("academicYearError");
 
-  if(academicYearinput.value === "default"){
+  if(academicYearinput.value === ""){
     errorElement.textContent ="Please select.";
     return false;
   } else {
@@ -116,7 +116,7 @@ function validatesemester(){
   const semesterinput = document.getElementById("semester");
   const errorElement = document.getElementById("semesterError");
 
-  if(semesterinput.value === "default"){
+  if(semesterinput.value === ""){
     errorElement.textContent ="Please select.";
     return false;
   } else {
@@ -372,6 +372,19 @@ function showFormData(event) {
     Location: ${location}
     Description: ${description}
   `;
+  
+  FullName.textContent = `Full Name: ${fullname}`;
+  StudentId.textContent = `Student ID: ${studentID}`;
+  Email.textContent = `Email: ${email}`;
+  WorkTitle.textContent = `Work/Activity Title: ${workTitle}`;
+  ActivityType.textContent = `Type of Work/Activity: ${activityType}`;
+  AcademicYear.textContent = `Academic Year: ${academicYear}`;
+  Semester.textContent = `Semester: ${semester}`;
+  StartDate.textContent = `Start Date/Time: ${startDate}`;
+  EndDate.textContent = `End Date/Time: ${endDate}`;
+  Location1.textContent = `Location: ${location}`;
+  Description.textContent = `Description: ${description}`;
+
   const existingFormData = document.querySelector('.form-data-container');
   if (existingFormData) {
     existingFormData.remove();
