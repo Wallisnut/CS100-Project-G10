@@ -92,7 +92,7 @@ function checkEmailUsername() {
     }
     else 
     {
-      errorElement.textContent = "Please enter you email.";
+      errorElement.textContent = "Please provide a valid university email in the format 'xxx.yyy@dome.tu.ac.th'.";
       return false;
     }    
   }

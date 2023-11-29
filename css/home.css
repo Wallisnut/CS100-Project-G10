@@ -44,11 +44,15 @@ body
     
 }
 
+.Members h1 {
+    margin-top: 100px;
+    text-align: center;
+}
 
 .column{
     float: left;
     color: #ffffff;
-    margin-top: 150px;
+    margin-top: 80px;
     text-align: center;
     margin-left: 10px;
     margin-right: 30px;
@@ -88,7 +92,7 @@ body
 
 
 @media screen and (max-width: 1350px) {
-    .column.mid,.column.right,.column.column.left {
+    .column.mid,.column.right,.column.column.left,.nav-bar {
       width: 100% ;
       text-align:center ;
       margin:0px;
@@ -97,7 +101,7 @@ body
 }
 
 @media screen and (max-width: 600px) {
-    .column.middle,.column.right,.column.left{
+    .column.middle,.column.right,.column.left,.nav-bar{
       width: 100% ;
       text-align:center ;
       margin:0px;
@@ -106,3 +110,4 @@ body
   }
   
 }
+
