@@ -91,7 +91,7 @@ function checkEmailUsername() {
     }
     else 
     {
-      errorElement.textContent = "aoeuaoeuaeuaoeuaoe";
+      errorElement.textContent = "Please enter the email address that corresponds to the name.";
       return false;
     }    
   }
@@ -148,8 +148,8 @@ function checkStudentIDYearMatch() {
     } 
     else 
     {
-      errorElementid.textContent ="aoeuaoeuaoeuaoe";
-      errorElementaca.textContent="aoeuaoeuaoeuaoe";
+      errorElementid.textContent ="Plese enter the student number that is associated with the academic year.";
+      errorElementaca.textContent="Plese enter the student number that is associated with the academic year.";
       return false;
     }
   }
