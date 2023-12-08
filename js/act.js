@@ -1,7 +1,8 @@
 const config = {
-    // backendUrl: "http://54.179.42.49/", // Default backend URL
-    backendUrl: "https://d1npkyc4r380kx.cloudfront.net/", // Default backend URL
-  };
+  backendUrl: "http://localhost:8000/", // Default backend URL
+};
+const port = 8000;
+
   
   // Function to validate Firstname and Lastname
   function validateName() {
@@ -199,7 +200,7 @@ function validateendDate(){
   // Function to fetch activity types from the backend
   async function fetchActivityTypes() {
     try {
-      const response = await fetch(config.backendUrl + "getActivityType");
+      const response = await fetch(`http://${window.location.hostname}:${port}/getActivityType`);
       if (response.ok) {
         const data = await response.json();
         return data;
@@ -274,8 +275,8 @@ function validateendDate(){
   
     try {
       // Send data to the backend using POST request
-      const response = await fetch(config.backendUrl + "record", {
-        method: "POST",
+      const response = await fetch(`http://${window.location.hostname}:${port}/record`, {
+      method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
