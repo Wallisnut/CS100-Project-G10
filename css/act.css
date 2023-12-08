@@ -1,47 +1,46 @@
 *{
-  border: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 :root 
 {
-  --c-1 :#3e4f5a;
-  --c-2 :#a2b5c2;
-  --t-1 :#e4edf4;
+    --c-1 :#3e4f5a;
+    --c-2 :#a2b5c2;
+    --t-1 :#e4edf4;
 }
 body
 {
-  background: var(--c-2);
+    background: var(--c-2);
 }
 .nav-bar
 {
-  position: relative;
-  display: flex;
-  top: 0;
-  left: 0;
-  justify-content: space-between;
-  background: var(--c-1);
-  color: var(--t-1);
+    position: relative;
+    display: flex;
+    top: 0;
+    left: 0;
+    justify-content: space-between;
+    background: var(--c-1);
+    color: var(--t-1);
 }
-.nav-bar div
+.nav-bar nav,div
 {
-  margin: 0 50px 0 50px;
+    margin: 0 50px 0 50px;
 }
-.nav
+.nav-bar nav
 {
-  position: relative;
-  display: flex;
-  padding-top: 26px;
+    position: relative;
+    display: flex;
+    padding-top: 26px;
 }
-.nav-bar div a
+.nav-bar nav a
 {
-  text-decoration: none;
-  color: var(--t-1);
-  font-size: 22px;
-  margin-left: 50px;
-  
+    text-decoration: none;
+    color: var(--t-1);
+    font-size: 22px;
+    margin-left: 50px;
 }
 .form-container {
   max-width: 700px;
