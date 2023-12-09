@@ -114,11 +114,12 @@ body
     margin-left: 20px;
 }
 .column.mid {
-    width: 30%;
+    width: 25%;
     
 }
 .column.right {
     width: 30%;
+    margin-left: 50px;
 }
 
 .column img{
