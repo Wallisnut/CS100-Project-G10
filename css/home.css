@@ -80,10 +80,9 @@ body
 
 .row
 {
-    background:;
     position: absolute;
     margin-top: -25px;
-    margin-left: 178px;
+    margin-left: 100px;
     border-radius: 50px;
     border: 4px solid var(--c-1);
     backdrop-filter: 50px;
