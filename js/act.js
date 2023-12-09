@@ -8,7 +8,6 @@ const config = {
     const fullnameInput = document.getElementById("fullname");
     const names = fullnameInput.value.trim().split(" ");
     const errorElement = document.getElementById("fullnameError");
-  
     if (names.length !== 2) {
       errorElement.textContent = "Please enter both your Firstname and Lastname.";
       return false;
@@ -18,20 +17,24 @@ const config = {
     return true;
   }
   
+  
   // Function to validate Student ID
   function validateStudentID() {
     const studentIDInput = document.getElementById("studentID");
-    const studentIDPattern = /^\d{10}$/;
+    const studentIDPattern = /^(66+\d{8})$/; // 66xxxxxxxx
     const errorElement = document.getElementById("studentIDError");
   
-    if (!studentIDPattern.test(studentIDInput.value)) {
-      errorElement.textContent = "Please enter a 10-digit Student ID.";
+    if (!studentIDPattern.test (studentIDInput.value)) {
+      errorElement.textContent = "Please enter a 10-digit Student ID. Please provide a valid Student ID in the format '66XXXXXXXX'.";;
       return false;
+      
     } else {
       errorElement.textContent = ""; // Clear the error message when valid
     }
     return true;
+    
   }
+  
   
   // Function to validate University Email
   function validateEmail() {
@@ -40,20 +43,157 @@ const config = {
     const errorElement = document.getElementById("emailError");
   
     if (!emailPattern.test(emailInput.value)) {
-      errorElement.textContent =
-        "Please provide a valid university email in the format 'xxx.yyy@dome.tu.ac.th'.";
+      errorElement.textContent = "Please provide a valid university email in the format 'xxx.yyy@dome.tu.ac.th'.";
       return false;
     } else {
       errorElement.textContent = ""; // Clear the error message when valid
+      return true;
     }
+   
+  }
+
+  function validateTypeWork(){
+    const typeworkinput = document.getElementById("activityType");
+    const errorElement = document.getElementById("activityTypeError");
+    
+    if(typeworkinput.value === ""){
+      errorElement.textContent ="Please select.";
+      return false;
+    } else {
+      errorElement.textContent= ""; 
+      return true;
+    }
+  }
+
+const fullnameInput = document.getElementById('fullname');
+const emailInput = document.getElementById('email');
+const errorElement = document.getElementById("emailError");
+
+function getEmailUsername(email) {
+  return email.split('@')[0]; 
+}
+function checkEmailUsername() {
+  const fullname = fullnameInput.value.trim();
+  const email = emailInput.value.trim();
+
+  if (email.length > 0) {
+    const emailUsername = getEmailUsername(email).toLowerCase(); 
+
+    const nameParts = fullname.split(' ');
+    const firstName = nameParts[0].toLowerCase(); 
+    const lastName = nameParts.length > 1 ? nameParts[nameParts.length - 1].toLowerCase() : '';
+    const expectedUsername = `${firstName}.${lastName.slice(0, 3)}`;
+
+    if (emailUsername === expectedUsername) 
+    {
+      errorElement.textContent= ""; 
+      return true;
+    }
+    else 
+    {
+      errorElement.textContent = "Please enter the email address that corresponds to the name.";
+      return false;
+    }    
+  }
+}
+emailInput.addEventListener('change', checkEmailUsername);
+
+
+
+function validateacademicYear(){
+  const academicYearinput = document.getElementById("academicYear");
+  const errorElement = document.getElementById("academicYearError");
+
+  if(academicYearinput.value === ""){
+    errorElement.textContent ="Please select.";
+    return false;
+  } else {
+    errorElement.textContent= ""; 
     return true;
   }
+}
+function validatesemester(){
+  const semesterinput = document.getElementById("semester");
+  const errorElement = document.getElementById("semesterError");
+
+  if(semesterinput.value === ""){
+    errorElement.textContent ="Please select.";
+    return false;
+  } else {
+    errorElement.textContent= ""; 
+    return true;
+  }
+}
+
+const errorElementid = document.getElementById("studentIDError");
+const errorElementaca= document.getElementById("academicYearError");
+const studentIDInput = document.getElementById('studentID');
+const academicYearSelect = document.getElementById('academicYear');
+function checkStudentIDYearMatch() {
+  const studentIDInput = document.getElementById('studentID');
+  const academicYearSelect = document.getElementById('academicYear');
+  const studentID = studentIDInput.value.trim();
+  const selectedYear = academicYearSelect.value;
+
+
+  if (studentID.length === 10 && selectedYear.length === 4) {
+    const studentIDFirstTwoDigits = studentID.slice(0, 2);
+    const academicYearLastTwoDigits = selectedYear.slice(2);
+
+    if (studentIDFirstTwoDigits === academicYearLastTwoDigits) 
+    {
+      errorElementid.textContent= ""; 
+      errorElementaca.textContent="";
+      return true;
+    } 
+    else 
+    {
+      errorElementid.textContent ="Plese enter the student number that is associated with the academic year.";
+      errorElementaca.textContent="Plese enter the student number that is associated with the academic year.";
+      return false;
+    }
+  }
+}
+studentIDInput.addEventListener('change', checkStudentIDYearMatch);
+academicYearSelect.addEventListener('change', checkStudentIDYearMatch);
+
+
+function validatestartDate(){
+  const startDateinput = document.getElementById("startDate");
+  const errorElement = document.getElementById("startDateError");
+
+  if(startDateinput.value === ""){
+    errorElement.textContent ="Please select.";
+    return false;
+  } else {
+    errorElement.textContent= ""; 
+    return true;
+  }
+}
+
+function validateendDate(){
+  const endDateinput = document.getElementById("endDate");
+  const errorElement = document.getElementById("endDateError");
+
+  if(endDateinput.value === ""){
+    errorElement.textContent ="Please select.";
+    return false;
+  } else {
+    errorElement.textContent= ""; 
+    return true;
+  }
+}
   
   // Function to validate form inputs on user input
   function validateFormOnInput() {
     validateName();
     validateStudentID();
     validateEmail();
+    validateTypeWork();
+    validateacademicYear()
+    validatesemester();
+    validatestartDate();
+    validateendDate();
   }
   
   // Function to fetch activity types from the backend
@@ -97,7 +237,7 @@ const config = {
     event.preventDefault();
   
     // Validate form inputs before submission
-    if (!validateName() || !validateStudentID() || !validateEmail()) {
+    if (!validateName() || !validateStudentID() || !validateEmail() || !validateTypeWork() || !validateacademicYear() || !validatesemester() || !validatestartDate() || !validateendDate()) {
       return;
     }
   
@@ -110,6 +250,8 @@ const config = {
       alert("End datetime should be after the start datetime.");
       return;
     }
+    
+    
   
     // Create the data object to send to the backend
     const formData = new FormData(event.target);
@@ -173,3 +315,116 @@ const config = {
     .getElementById("studentID")
     .addEventListener("input", validateStudentID);
   document.getElementById("email").addEventListener("input", validateEmail);
+  document.getElementById("activityType").addEventListener("input", validateTypeWork);
+  document.getElementById("academicYear").addEventListener("input", validateacademicYear);
+  document.getElementById("semester").addEventListener("input", validatesemester);
+  document.getElementById("startDate").addEventListener("input", validatestartDate);
+  document.getElementById("endDate").addEventListener("input", validateendDate);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function showFormData(event) {
+  event.preventDefault();
+  const fullname = document.getElementById('fullname').value;
+  const studentID = document.getElementById('studentID').value;
+  const email = document.getElementById('email').value;
+  const workTitle = document.getElementById('workTitle').value;
+  const activityType = document.getElementById('activityType').value;
+  const academicYear = document.getElementById('academicYear').value;
+  const semester = document.getElementById('semester').value;
+  const startDate = document.getElementById('startDate').value;
+  const endDate = document.getElementById('endDate').value;
+  const location = document.getElementById('location').value;
+  const description = document.getElementById('description').value;
+  const formDataString = `
+    Full Name: ${fullname}
+    Student ID: ${studentID}
+    Email: ${email}
+    Work/Activity Title: ${workTitle}
+    Type of Work/Activity: ${activityType}
+    Academic Year: ${academicYear}
+    Semester: ${semester}
+    Start Date/Time: ${startDate}
+    End Date/Time: ${endDate}
+    Location: ${location}
+    Description: ${description}
+  `;
+  
+ /* FullName.textContent = `Full Name: ${fullname}`;
+  StudentId.textContent = `Student ID: ${studentID}`;
+  Email.textContent = `Email: ${email}`;
+  WorkTitle.textContent = `Work/Activity Title: ${workTitle}`;
+  ActivityType.textContent = `Type of Work/Activity: ${activityType}`;
+  AcademicYear.textContent = `Academic Year: ${academicYear}`;
+  Semester.textContent = `Semester: ${semester}`;
+  StartDate.textContent = `Start Date/Time: ${startDate}`;
+  EndDate.textContent = `End Date/Time: ${endDate}`;
+  Location1.textContent = `Location: ${location}`;
+  Description.textContent = `Description: ${description}`;*/
+
+  const existingFormData = document.querySelector('.form-data-container');
+  if (existingFormData) {
+    existingFormData.remove();
+  }
+  const formDataDisplay = document.createElement('div');
+  formDataDisplay.classList.add('form-data-container');
+  const formDataContent = document.createElement('pre');
+  formDataContent.textContent = formDataString;
+const closeButton = document.createElement('button');
+closeButton.textContent = 'Close';
+closeButton.classList.add('close-button'); 
+closeButton.addEventListener('click', function () {
+  formDataDisplay.remove();
+});
+formDataDisplay.appendChild(formDataContent);
+formDataDisplay.appendChild(closeButton);
+document.body.appendChild(formDataDisplay);
+}
+const submitButton = document.querySelector('input[type="submit"]');
+submitButton.addEventListener('click', showFormData);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
